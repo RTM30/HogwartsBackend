@@ -44,5 +44,26 @@ public class StudentsController {
 		int studentId = Integer.parseInt(id);
 		ss.deleteById(studentId);
 	}
+	
+	// This successfully reads studentId and password from request
+	@PostMapping("/login")
+	Student test(@RequestBody String loginCredentials) {
+		
+		// Convert JSON to a seperate student ID and password
+		String[] credentialsArray = loginCredentials.split(",");
+		
+		// Convert JSON to readable strings
+		String studentId = credentialsArray[0].substring(14,22).trim();
+		String password = credentialsArray[1].substring(12,16).trim();
+		
+		//Output the studentId and password (testing purposes)
+		System.out.println("StudentID in the controller is: " + studentId);
+		System.out.println("Password in the controller is: " + password);
+		
+		// Compare studentId and password
+		Student s = ss.login(studentId, password);
+		
+		return s;
+	}
 
 }

@@ -29,6 +29,7 @@ public class Student {
 	private String firstName;
 	private String lastName;
 	private String studentId = setId();
+	private String password;
 	private String house;
 	
 	
@@ -72,15 +73,23 @@ public class Student {
 		super();
 	}
 
-	public Student(int id, String firstName, String lastName, String studentId, String house, String regDate, String regTime) {
+	public Student(int id, String firstName, String lastName, String studentId, String password, String house, String regDate, String regTime) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.setStudentId(studentId);
+		this.password = password;
 		this.house = house;
 		this.regDate = regDate;
 		this.regTime = regTime;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", studentId=" + studentId
+				+ ", password=" + password + ", house=" + house + ", timestamp=" + timestamp + ", regDate=" + regDate
+				+ ", regTime=" + regTime + "]";
 	}
 
 	public int getId() {
@@ -137,6 +146,14 @@ public class Student {
 
 	public void setStudentId(String studentId) {
 		this.studentId = studentId;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	
